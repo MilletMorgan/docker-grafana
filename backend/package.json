@@ -1,0 +1,16 @@
+{
+  "name": "docker_web_app",
+  "version": "1.0.0",
+  "description": "Node.js on Docker",
+  "main": "server.js",
+  "devDependencies": {
+    "prom-client": "^13.0.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "prometheus": "docker run --rm -p 9090:9090 -v C:/Users/mille/Documents/YNOV/DevOps/testGrafana/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus",
+    "datasources": "docker run --rm -p 3000:3000 -e GF_AUTH_DISABLE_LOGIN_FORM=true -e GF_AUTH_ANONYMOUS_ENABLED=true -e GF_AUTH_ANONYMOUS_ORG_ROLE=Admin -v C:/Users/mille/Documents/YNOV/DevOps/testGrafana/datasources.yml:/etc/grafana/provisioning/datasources/datasources.yml grafana/grafana",
+    "start": "node server.js"
+  }
+}
